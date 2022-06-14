@@ -371,7 +371,8 @@
           "!logs_path_localhost_access_log": "/apps_ux/logs/RRS/rrs-web/localhost_access_log.*.log",
           "!logs_path_localhost": "/apps_ux/logs/RRS/rrs-web/localhost.*.log",
           "!logs_path_catalina": "/apps_ux/logs/RRS/rrs-web/catalina.*.log",
-          "!logs_path_app": "/apps_ux/logs/RRS/rrs-web/rrs-web-war.log" 
+          "!logs_path_app": "/apps_ux/logs/RRS/rrs-web/rrs-web-war.log" ,
+          "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*|^\\d+\\s+[<>]+.*/"
         }
       },
       {
