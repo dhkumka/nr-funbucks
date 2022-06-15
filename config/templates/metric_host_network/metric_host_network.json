@@ -2,7 +2,7 @@
   "measurementType": "instant",
   "context": {
     "inputInterface": "${METRIC_HOST_NETWORK_INTERFACE_NAME}",
-    "inputIntervalSec": 30
+    "inputIntervalSec": 1
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},

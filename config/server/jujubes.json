@@ -7,6 +7,7 @@
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "nrprd-rp",
       "type": "apache_reverse_proxy",
