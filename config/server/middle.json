@@ -48,6 +48,14 @@
       }
     },
     {
+      "id": "dispatch-wfim-rof-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-wfim-rof-sync-api"
+      }
+    },
+    {
       "id": "wfcst-war",
       "type": "tomcat",
       "context": {
