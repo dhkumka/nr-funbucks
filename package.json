@@ -1,7 +1,7 @@
 {
   "name": "nr-funbucks",
   "version": "1.0.0",
-  "description": "oclif example Hello World CLI",
+  "description": "Funbucks - A fluentbit configuration generator",
   "author": "Matthew Bystedt",
   "bin": {
     "oclif-hello-world": "./bin/run"

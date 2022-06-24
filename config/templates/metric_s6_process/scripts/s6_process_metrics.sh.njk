@@ -10,8 +10,38 @@ topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
 
 if [ "true" == $up ]
   then
+    healthCheck=""
+{% if healthCheckEnabled %}
+    port={{healthCheckPort if healthCheckPort | int > 0 else 0}}
+{% if healthCheckPort === 'tomcat' %}
+    if compgen -G "{{appDirectory}}/current/tomcat/port:*" > /dev/null; then
+      port=$(ls -1 {{appDirectory}}/current/tomcat/port:* | sed 's/.*port:\([0-9]*\)$/\1/g')
+    fi
+{% endif %}
+    if [ $port -gt 0 ]; then
+      healthCheckUrl="{{healthCheckScheme}}://{{healthCheckDomain}}:$port{{healthCheckPath}}"
+      statusCode=$(curl -k -I -m 1 -o /dev/null -w "%{http_code}" $healthCheckUrl 2>/dev/null)
+      if [ "$statusCode" == "000" ]; then
+        statusCode=0
+      fi
+
+      healthCheck="\
+      \"http\": { \
+        \"request\": { \
+          \"method\": \"HEAD\" \
+        }, \
+        \"response\": { \
+          \"status_code\": $statusCode \
+        } \
+      }, \
+      \"url\": { \
+        \"original\": \"$healthCheckUrl\" \
+      },"
+    fi
+{% endif %}
     echo "
     {
+      ${healthCheck} \
       \"process\": {\
         \"pid\": ${pid},\
         \"name\": \"${topStat[11]}\",\

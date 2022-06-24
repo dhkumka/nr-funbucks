@@ -416,6 +416,13 @@
         "component": "tus"
       }
     },
+    {"id": "metrics_tus", "type": "metric_s6_process", "context": {
+      "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}APP-{{ component | upper }}",
+      "app": "TUS",
+      "component": "tus",
+      "healthCheckEnabled": true,
+      "healthCheckPort": "tomcat"
+    }},
     {
       "id": "tusws",
       "type": "tomcat",
