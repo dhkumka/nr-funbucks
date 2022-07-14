@@ -17,6 +17,13 @@ Example 2: Generate for a server (local testing and override some context variab
 $ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c output_kinesis/true -c output_local_lambda/
 ```
 
+## Running a configuration against the local lambda (nr-apm-stack/event-stream-processing)
+
+1. Generate your server's configuration using the local (-l) flag
+2. Place any documents in ./lambda/data. You will need to lay the files out relative to the log directory like they would be on the server. Check the generated files (inputs.conf) in ./output if you are confused.
+3. Ensure the local lambda is running. See: nr-apm-stack directory.
+4. Run ```./lambda/podman-run.sh```
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
@@ -150,7 +157,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -210,7 +217,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
