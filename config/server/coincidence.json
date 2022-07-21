@@ -7,7 +7,6 @@
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "process", "type": "metric_process", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}},
     {"id": "metrics_isss", "type": "metric_s6_process", "context": {
       "app": "jenkins",
