@@ -1,0 +1,46 @@
+# Tomcat access
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.access
+    Add event.kind event
+    Add event.category web
+    Add event.dataset wso2.access{% if tmplTomcatTestAccessIndex %}
+    @metadata.index {{ tmplTomcatTestAccessIndex }}{% endif %}
+
+# Parser filter for generic multiline core parsing
+#
+[FILTER]
+    Name parser
+    Match app.{{typeTag}}.generic
+    Key_Name message
+    Parser parser-filter-regex-generic-{{typeTag}}
+    Reserve_Data On
+    Preserve_Key On
+
+# App logs (generic)
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.generic
+    Rename tomcat_time @timestamp
+    Add event.kind event
+    Add event.category web
+    Add event.dataset application.log
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
+    Add log.file.path /unknown.log
+    Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
+    @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.*
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
+    Add @metadata.keyAsPath true
+    Rename message event.original
+    Rename message_parsed message
+    Rename level log.level
