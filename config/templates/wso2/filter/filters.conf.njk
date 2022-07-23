@@ -1,4 +1,4 @@
-# Tomcat access
+# Wso2 access
 #
 [FILTER]
     Name modify
@@ -8,21 +8,21 @@
     Add event.dataset wso2.access{% if tmplTomcatTestAccessIndex %}
     @metadata.index {{ tmplTomcatTestAccessIndex }}{% endif %}
 
-# Parser filter for generic multiline core parsing
+# Parser filter for carbon multiline core parsing
 #
 [FILTER]
     Name parser
-    Match app.{{typeTag}}.generic
+    Match app.{{typeTag}}.carbon
     Key_Name message
     Parser parser-filter-regex-generic-{{typeTag}}
     Reserve_Data On
     Preserve_Key On
 
-# App logs (generic)
+# App logs (carbon)
 #
 [FILTER]
     Name modify
-    Match app.{{typeTag}}.generic
+    Match app.{{typeTag}}.carbon
     Rename tomcat_time @timestamp
     Rename tid event.provider
     Add event.kind event
