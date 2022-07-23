@@ -7,5 +7,6 @@
 node_modules
 oclif.manifest.json
 /output
-!/labda/data/.keep
+/lambda/data
+!/lambda/data/.keep
 .DS_Store
