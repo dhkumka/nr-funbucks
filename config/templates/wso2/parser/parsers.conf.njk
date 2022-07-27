@@ -1,0 +1,17 @@
+# Used by parser filter for carbon multiline core parsing
+#
+[PARSER]
+    name          parser-filter-regex-carbon-{{typeTag}}
+    Format        regex
+    Regex         {{appParserFilterRegex|safe}}
+    Time_Key      tomcat_time
+
+# App (carbon) multiline core parser
+#
+[MULTILINE_PARSER]
+    name          multiline-core-app-regex-{{typeTag}}
+    type          regex
+    flush_timeout 1000
+    key_content message
+    rule      "start_state"   "{{startAppParserRegex|safe}}"  "cont"
+    rule      "cont"          "{{contAppParserRegex|safe}}"    "cont"

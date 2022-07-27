@@ -1,0 +1,47 @@
+# Wso2 access
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.access
+    Add event.kind event
+    Add event.category web
+    Add event.dataset wso2.access{% if tmplTomcatTestAccessIndex %}
+    @metadata.index {{ tmplTomcatTestAccessIndex }}{% endif %}
+
+# Parser filter for carbon multiline core parsing
+#
+[FILTER]
+    Name parser
+    Match app.{{typeTag}}.carbon
+    Key_Name message
+    Parser parser-filter-regex-carbon-{{typeTag}}
+    Reserve_Data On
+    Preserve_Key On
+
+# App logs (carbon)
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.carbon
+    Rename tomcat_time @timestamp
+    Rename tid event.provider
+    Add event.kind event
+    Add event.category web
+    Add event.dataset wso2.carbon
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
+    Add log.file.path /unknown.log
+    Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
+    @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
+
+# Application fields
+#
+[FILTER]
+    Name modify
+    Match app.{{typeTag}}.*
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
+    Add @metadata.keyAsPath true
+    Rename message event.original
+    Rename message_parsed message
+    Rename level log.level

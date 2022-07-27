@@ -1,0 +1,16 @@
+{
+  "measurementType": "historic",
+  "context": {
+    "wso2_logs_path": "wso2/wso2am/repository/logs",
+    "!logs_path_http_access_log": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ wso2_logs_path }}/http_access*.log",
+    "!logs_path_app": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ wso2_logs_path }}/wso2carbon.log",
+    "appParserFilterRegex": "(?m)^TID:\\s*\\[(?<tid>-\\d+)]\\s*\\[]\\s*\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)](\\s+)(?<level>\\w+)[\\s:]*(?<message_parsed>.*)",
+    "startAppParserRegex": "/^TID:\\s*\\[-\\d+]\\s\\[]\\s\\[\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(?:.\\d{3}?).*$/",
+    "contAppParserRegex": "/^[^TID:].*/"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+  ]
+}
