@@ -52,6 +52,7 @@ USAGE
 <!-- commands -->
 * [`nr-funbucks gen`](#nr-funbucks-gen)
 * [`nr-funbucks help [COMMAND]`](#nr-funbucks-help-command)
+* [`nr-funbucks monitors`](#nr-funbucks-monitors)
 * [`nr-funbucks plugins`](#nr-funbucks-plugins)
 * [`nr-funbucks plugins:install PLUGIN...`](#nr-funbucks-pluginsinstall-plugin)
 * [`nr-funbucks plugins:inspect PLUGIN...`](#nr-funbucks-pluginsinspect-plugin)
@@ -106,6 +107,26 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
+## `nr-funbucks monitors`
+
+generate monitor configuration
+
+```
+USAGE
+  $ nr-funbucks monitors [-f <value>]
+
+FLAGS
+  -f, --filePath=<value>  [default: ./scripts/fluentbit_agents.csv] path to server configuration
+
+DESCRIPTION
+  generate monitor configuration
+
+EXAMPLES
+  $ nr-funbucks monitors
+```
+
+_See code: [dist/commands/monitors.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/monitors.ts)_
+
 ## `nr-funbucks plugins`
 
 List installed plugins.
@@ -157,7 +178,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -217,7 +238,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -336,3 +357,11 @@ DESCRIPTION
   Update installed plugins.
 ```
 <!-- commandsstop -->
+
+## `Generate Monitors`
+
+To run: 
+
+./bin/dev monitors
+
+monitors.json file created in the output folder
