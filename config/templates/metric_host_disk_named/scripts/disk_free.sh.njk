@@ -1,6 +1,6 @@
 #!/bin/bash
 
-df -P | grep {{mountPath}}$ | \
+timeout .5 df -P | grep {{mountPath}}$ | \
   {{appPathJq}} -R -s '
     {
       host: (if (length > 0) then {

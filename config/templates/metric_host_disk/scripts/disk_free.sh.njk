@@ -1,6 +1,6 @@
 #!/bin/bash
 
-df -P | \
+timeout .5 df -P | \
   {{appPathJq}} -R -s '
     {
       disk: [

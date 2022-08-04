@@ -7,6 +7,7 @@ end
 
 function multiplex_disk_stats(tag, timestamp, record)
   new_record = {}
+  count = 0
 
   for k, v in pairs(record["disk"]) do
       new_record[k] = copy(record)
@@ -17,7 +18,12 @@ function multiplex_disk_stats(tag, timestamp, record)
       new_record[k]["host.disk.used_percentage"] = new_record[k]["host.disk.used"] / tonumber(v["total"])
 
       new_record[k]["disk"] = nil
+      count = count + 1
   end
 
-  return 2, timestamp, new_record
+  if count > 0 then
+    return 2, timestamp, new_record
+  end
+
+  return -1, timestamp, new_record
 end
