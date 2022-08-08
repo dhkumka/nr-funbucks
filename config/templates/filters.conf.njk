@@ -2,7 +2,7 @@
 [FILTER]
     Name modify
     Match *
-    Add agent.type fluentbit{% if not output_local_lambda %}
+    Add agent.type fluentbit{% if not outputLocalLambdaEnabled %}
     Add agent.version ${FLUENT_VERSION}
     Add agent.name ${AGENT_NAME}{% endif %}
     Add ecs.version 1.12.0

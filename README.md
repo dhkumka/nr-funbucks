@@ -8,13 +8,13 @@ It is not recommended that the tool be installed at this time.
 Example 1: Generate for a server
 
 ```
-$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c output_kinesis/true -c output_local_lambda/
+$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c outputAwsKinesisEnabled/true -c outputLocalLambdaEnabled/
 ```
 
 Example 2: Generate for a server (local testing and override some context variables)
 
 ```
-$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c output_kinesis/true -c output_local_lambda/
+$ ./bin/dev gen -l -s localhost -c deploy_1:inputPath//metrics/\* -c outputAwsKinesisEnabled/true -c outputLocalLambdaEnabled/
 ```
 
 ## Running a configuration against the local lambda (nr-apm-stack/event-stream-processing)
@@ -178,7 +178,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -238,7 +238,7 @@ ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin 
+  $ nr-funbucks plugins:install myplugin
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -360,7 +360,7 @@ DESCRIPTION
 
 ## `Generate Monitors`
 
-To run: 
+To run:
 
 ./bin/dev monitors
 
