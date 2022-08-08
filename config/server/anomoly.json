@@ -1,7 +1,6 @@
 {
   "address": "anomoly.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
-  "fluentBitRelease": "1.8.15",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
@@ -422,7 +421,7 @@
       "type": "tomcat",
       "context": {
         "app": "RRS",
-        "component": "rrs-api" 
+        "component": "rrs-api"
       }
     },
     {
@@ -442,7 +441,7 @@
         "!logs_path_localhost_access_log": "/apps_ux/logs/RRS/rrs-web/localhost_access_log.*.log",
         "!logs_path_localhost": "/apps_ux/logs/RRS/rrs-web/localhost.*.log",
         "!logs_path_catalina": "/apps_ux/logs/RRS/rrs-web/catalina.*.log",
-        "!logs_path_app": "/apps_ux/logs/RRS/rrs-web/rrs-web-war.log" 
+        "!logs_path_app": "/apps_ux/logs/RRS/rrs-web/rrs-web-war.log"
       }
     },
     {
