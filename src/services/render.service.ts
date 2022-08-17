@@ -18,6 +18,7 @@ export class RenderService {
     context: {},
     localContextOverride: {},
     files: [],
+    fluentBitRelease: '',
   };
 
   /**
@@ -142,8 +143,12 @@ export class RenderService {
     const typeConfigPath = path.resolve(TEMPLATE_CONFIG_BASEPATH, app.type, `${app.type}.json`);
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
-    // Only write out if semver is statisfied. Default is to accept.
-    if (type.semver === undefined || semver.satisfies(serverConfig.fluentBitRelease, type.semver)) {
+    const fluentBitRelease = serverConfig.fluentBitRelease || this.baseConfig.fluentBitRelease;
+    // Only write out if semver is statisfied. Default is to accept when no semver specified.
+    if (
+      fluentBitRelease &&
+      (type.semver === undefined || semver.satisfies(fluentBitRelease, type.semver))
+    ) {
       this.writeType(app, type, serverConfig, override);
     }
   }

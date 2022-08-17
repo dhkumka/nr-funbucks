@@ -37,4 +37,5 @@ export interface BaseConfig {
   context: object;
   localContextOverride: object;
   files: FbFile[];
+  fluentBitRelease: string;
 }
