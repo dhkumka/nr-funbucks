@@ -1,12 +1,5 @@
 # Wso2 access
 #
-[FILTER]
-    Name modify
-    Match app.{{typeTag}}.access
-    Add event.kind event
-    Add event.category web
-    Add event.dataset wso2.access{% if tmplTomcatTestAccessIndex %}
-    @metadata.index {{ tmplTomcatTestAccessIndex }}{% endif %}
 
 # Parser filter for carbon multiline core parsing
 #
