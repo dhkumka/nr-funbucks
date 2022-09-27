@@ -447,6 +447,14 @@
         "app": "wfwx",
         "component": "wfwx-web-war"
       }
+    },
+    {
+      "id": "rrt-war",
+      "type": "tomcat",
+      "context": {
+        "app": "rrt",
+        "component": "rrt-war"
+      }
     }
   ],
   "context": {

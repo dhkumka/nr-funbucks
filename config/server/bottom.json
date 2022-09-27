@@ -527,7 +527,8 @@
       "type": "tomcat",
       "context": {
         "app": "rrt",
-        "component": "rrt-war"
+        "component": "rrt-war",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}-{{environment | lower }}/{{ component | lower }}.log"
       }
     }
   ],
