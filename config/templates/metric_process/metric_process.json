@@ -1,5 +1,6 @@
 {
   "measurementType": "instant",
+  "os": ["Linux"],
   "context": {
     "app": "apm",
     "component": "fluent-bit",

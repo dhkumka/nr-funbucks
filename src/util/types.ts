@@ -16,6 +16,7 @@ export interface TypeConfig {
   files: FbFile[];
   measurementType: keyof MEASURE_TYPES;
   semver?: string;
+  os?: string[];
 }
 
 export interface ServerAppConfig {
@@ -28,6 +29,8 @@ export interface ServerConfig {
   address: string; // Used by pipeline
   proxy: string; // Used by pipeline
   fluentBitRelease: string; // Used by pipeline
+  logsProxyDisabled?: string; // Used by pipeline
+  os: string;
   apps: ServerAppConfig[];
   context: object;
   disableFluentBitMetrics: boolean;

@@ -2,22 +2,14 @@
   "address": "stress.dmz",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "logsProxyDisabled": "true",
-  "disableFluentBitMetrics": true,
-  "metadata": {
-    "os": "Windows_NT"
-  },
+  "os": "Windows_NT",
   "apps": [
     {
       "id": "as-as-api",
       "type": "tomcat",
       "context": {
         "app": "AS",
-        "component": "as-as-api",        
-        "!logs_path_localhost_access_log": "{{ localLogsPathPrefix | default(windowsLogsPathPrefix) }}/{{ app | upper }}/{{ component | lower }}/localhost_access_log.*.log",
-        "!logs_path_localhost": "{{ localLogsPathPrefix | default(windowsLogsPathPrefix) }}/{{ app | upper }}/{{ component | lower }}/localhost.*.log",
-        "!logs_path_catalina": "{{ localLogsPathPrefix | default(windowsLogsPathPrefix) }}/{{ app | upper }}/{{ component | lower }}/catalina.*.log",
-        "!logs_path_app": "{{ localLogsPathPrefix | default(windowsLogsPathPrefix) }}/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}.log",
-        "!inputDbFile": "{{ inputDbFileWindows }}",
+        "component": "as-as-api",
         "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
       }
     }

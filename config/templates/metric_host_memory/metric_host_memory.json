@@ -1,5 +1,6 @@
 {
   "measurementType": "instant",
+  "os": ["Linux"],
   "context": {
     "inputIntervalSec": 30
   },

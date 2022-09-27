@@ -1,6 +1,7 @@
 {
   "address": "localhost",
   "fluentBitRelease": "1.9.1",
+  "os": "Linux",
   "apps": [
     {
       "type": "metric_host_cpu", "context": {

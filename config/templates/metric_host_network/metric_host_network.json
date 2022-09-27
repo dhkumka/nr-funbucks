@@ -1,5 +1,6 @@
 {
   "measurementType": "instant",
+  "os": ["Linux"],
   "context": {
     "inputInterface": "${METRIC_HOST_NETWORK_INTERFACE_NAME}",
     "inputIntervalSec": 60
