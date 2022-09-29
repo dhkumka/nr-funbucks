@@ -1,0 +1,20 @@
+{
+  "address": "stress.dmz",
+  "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
+  "logsProxyDisabled": "true",
+  "os": "Windows_NT",
+  "apps": [
+    {
+      "id": "as-as-api",
+      "type": "tomcat",
+      "context": {
+        "app": "AS",
+        "component": "as-as-api",
+        "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
+      }
+    }
+  ],
+  "context": {
+    "environment": "test"
+  }
+}

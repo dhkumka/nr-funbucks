@@ -2,8 +2,8 @@
   "context": {
     "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "info",
-    "!fluentLogFile": "/apps_ux/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
-    "inputDbFile": "/apps_data/agents/fluent-bit/fluent-bit-logs.db",
+    "!fluentLogFile": "{{ 'E:' if os === 'Windows_NT'}}/apps_ux/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
+    "!inputDbFile": "{{ 'E:' if os === 'Windows_NT'}}/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
     "outputAwsKinesisRetryLimit": 3,

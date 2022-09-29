@@ -1,5 +1,6 @@
 {
   "measurementType": "instant",
+  "os": ["Linux"],
   "context": {
     "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | lower }}",
     "!appDirectory": "{{ appPathPrefix | default('/apps_ux/') }}{{ app | upper }}/{{ component | lower }}",

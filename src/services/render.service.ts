@@ -121,7 +121,7 @@ export class RenderService {
   public writeBase(serverConfig: ServerConfig, override: string[]) {
     const context = {
       ...this.baseConfig.context,
-      ...this.baseContextOverride,
+      ...this.getServerBaseContextOverride(serverConfig),
       ...serverConfig.context,
       ...this.overrideContext(override, undefined),
       ...this.collateFileType('parser'),
@@ -144,10 +144,13 @@ export class RenderService {
     const typeConfigStr = fs.readFileSync(typeConfigPath, 'utf8');
     const type: TypeConfig = JSON.parse(typeConfigStr);
     const fluentBitRelease = serverConfig.fluentBitRelease || this.baseConfig.fluentBitRelease;
-    // Only write out if semver is statisfied. Default is to accept when no semver specified.
+    // Only write out if semver and OS is statisfied. Default is to accept when no semver or OS specified.
     if (
       fluentBitRelease &&
-      (type.semver === undefined || semver.satisfies(fluentBitRelease, type.semver))
+      ((type.semver === undefined || semver.satisfies(fluentBitRelease, type.semver)) &&
+       (type.os === undefined || serverConfig.os === undefined ||
+        type.os.indexOf(serverConfig.os ? serverConfig.os : '') >= 0)
+      )
     ) {
       this.writeType(app, type, serverConfig, override);
     }
@@ -182,7 +185,7 @@ export class RenderService {
         {
           typeTag,
           ...this.baseConfig.context,
-          ...this.baseContextOverride,
+          ...this.getServerBaseContextOverride(serverConfig),
           ...serverConfig.context,
           ...context,
           ...this.overrideContext(override, typeTag),
@@ -321,5 +324,12 @@ export class RenderService {
    */
   private isTemplateNjkFile(path: string): boolean {
     return path.endsWith('.njk');
+  }
+
+  private getServerBaseContextOverride(serverConfig: ServerConfig): object {
+    return {
+      os: serverConfig.os,
+      ...this.baseContextOverride,
+    };
   }
 }
