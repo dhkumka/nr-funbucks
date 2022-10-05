@@ -15,7 +15,7 @@
     "appPathJq": "jq",
     "!fluentLogFile": "/tmp/agent.log",
     "localLogsPathPrefix": "/data",
-    "inputDbFile": "/tmp/fluent-bit-logs.db",
+    "!inputDbFile": "/tmp/fluent-bit-logs.db",
     "outputAwsKinesisEnabled": false,
     "outputLocalLambdaEnabled": true,
     "outputStdoutEnabled": true
