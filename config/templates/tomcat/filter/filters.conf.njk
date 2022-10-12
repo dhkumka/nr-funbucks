@@ -76,7 +76,7 @@
     Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
     Add log.file.path /unknown.log
     Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
-    @metadata.index {{ tmplTomcatTestApplicationIndex | safe }}{% endif %}
+    Add @metadata.index {{ tmplTomcatTestApplicationIndex | safe }}{% endif %}
 
 # Application fields
 #
