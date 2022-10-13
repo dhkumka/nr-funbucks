@@ -2,7 +2,7 @@
   "address": "stress.dmz",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "logsProxyDisabled": "true",
-  "os": "Windows_NT",
+  "os": "windows",
   "apps": [
     {
       "id": "as-as-api",
