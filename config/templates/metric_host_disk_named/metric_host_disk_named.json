@@ -1,7 +1,7 @@
 {
   "measurementType": "instant",
   "semver": ">=1.9.0",
-  "os": ["Linux"],
+  "os": ["linux"],
   "context": {
     "mountPath": "/fs/u02",
     "name": "storage",
