@@ -59,6 +59,7 @@ export default class Gen extends Command {
             context: {
               'app': 'fluentbit',
               'component': `fluent-bit.${agentCount}`,
+              'childProcess': true,
             },
           }, serverConfig, flags.context);
         }

@@ -3,13 +3,19 @@
 svStatArray=($(/sw_ux/s6/bin/s6-svstat -o up,pid {{serviceDirectory}}))
 up=${svStatArray[0]}
 pid=${svStatArray[1]}
-procStatArray=($(cat /proc/${pid}/stat))
-topStat=($(top -b -n 2 -d 1 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
-topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
-topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
+{% if childProcess %}
+pid=$(pgrep -P $pid)
+if [ -z "$pid" ]; then
+  up="false"
+fi
+{% endif %}
 
 if [ "true" == $up ]
   then
+    procStatArray=($(cat /proc/${pid}/stat))
+    topStat=($(top -b -n 2 -d 1 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
+    topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
+    topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
     healthCheck=""
 {% if healthCheckEnabled %}
     port={{healthCheckPort if healthCheckPort | int > 0 else 0}}

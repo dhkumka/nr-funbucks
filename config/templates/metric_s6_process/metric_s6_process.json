@@ -4,6 +4,7 @@
   "context": {
     "!serviceDirectory": "{{ s6ServicePathPrefix | default('/apps_ux/s6_services/') }}{{ component | lower }}",
     "!appDirectory": "{{ appPathPrefix | default('/apps_ux/') }}{{ app | upper }}/{{ component | lower }}",
+    "childProcess": false,
     "healthCheckDomain": "127.0.0.1",
     "healthCheckEnabled": false,
     "healthCheckScheme": "https",
