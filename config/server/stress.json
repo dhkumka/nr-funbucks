@@ -3,9 +3,9 @@
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "logsProxyDisabled": "true",
   "os": "windows",
-  "vault_username_field": "username_domainless",
-  "vault_password_field": "password",
-  "vault_path_field": "groups/appdelivery/oraapp_imborapp",
+  "vault_cd_user_field": "username_domainless",
+  "vault_cd_pass_field": "password",
+  "vault_cd_path": "groups/appdelivery/oraapp_imborapp",
   "apps": [
     {
       "id": "as-as-api",
