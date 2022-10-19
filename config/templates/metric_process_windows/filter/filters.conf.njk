@@ -1,0 +1,22 @@
+{% import "../../macros/lua.njk" as lua %}
+{{- lua.renderAppendTimestamp(typeTag) }}
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}
+    Add event.kind metric
+    Add event.category process
+    Add event.dataset process.info
+    Add event.type info
+    Add labels.project {{ app | lower }}
+    Add service.name {{ component | lower }}{% if environment %}
+    Add service.environment {{ environment }}{% endif %}
+    Add process.name ${AGENT_NAME}
+    Add @metadata.keyAsPath true
+
+[FILTER]
+    Name     throttle
+    Match    {{typeTag}}
+    Rate     1
+    Window   1
+    Interval 1m

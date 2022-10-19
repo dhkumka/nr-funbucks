@@ -15,7 +15,8 @@
         "component": "as-as-api",
         "tmplTomcatTestApplicationIndex": "nrm-test-aw-<%=YYYY.MM=%>"
       }
-    }
+    },
+    {"id": "metric_process_windows", "type": "metric_process_windows", "context": {}}
   ],
   "context": {
     "environment": "test"
