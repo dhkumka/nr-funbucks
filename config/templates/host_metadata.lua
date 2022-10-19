@@ -26,42 +26,49 @@ end
 
 function add_host_metadata(tag, timestamp, record)
     new_record = record
-    new_record["host.os.name"] = os.getenv("HOST_OS_NAME")
-    new_record["host.os.type"] = os.getenv("HOST_OS_TYPE")
-    new_record["host.os.family"] = os.getenv("HOST_OS_FAMILY")
-    new_record["host.os.kernel"] = os.getenv("HOST_OS_KERNEL")
-    new_record["host.os.full"] = os.getenv("HOST_OS_FULL")
-    new_record["host.os.version"] = os.getenv("HOST_OS_VERSION")
+    if isempty(new_record["host"]) then
+        new_record["host"] = {}
+    end
+    local host = new_record["host"]
+    if isempty(host["os"]) then
+        host["os"] = {}
+    end
+    host["os"]["name"] = os.getenv("HOST_OS_NAME")
+    host["os"]["type"] = os.getenv("HOST_OS_TYPE")
+    host["os"]["family"] = os.getenv("HOST_OS_FAMILY")
+    host["os"]["kernel"] = os.getenv("HOST_OS_KERNEL")
+    host["os"]["full"] = os.getenv("HOST_OS_FULL")
+    host["os"]["version"] = os.getenv("HOST_OS_VERSION")
 
-    new_record["host.ip"] = os.getenv("HOST_IP")
-    new_record["host.mac"] = os.getenv("HOST_MAC")
-    new_record["host.name"] = os.getenv("HOST_NAME")
-    new_record["host.hostname"] = os.getenv("HOST_HOSTNAME")
-    new_record["host.domain"] = os.getenv("HOST_DOMAIN")
-    new_record["host.architecture"] = os.getenv("HOST_ARCH")
+    host["ip"] = os.getenv("HOST_IP")
+    host["mac"] = os.getenv("HOST_MAC")
+    host["name"] = os.getenv("HOST_NAME")
+    host["hostname"] = os.getenv("HOST_HOSTNAME")
+    host["domain"] = os.getenv("HOST_DOMAIN")
+    host["architecture"] = os.getenv("HOST_ARCH")
 
-    if not(isempty(new_record["host.ip"])) then
-        new_record["host.ip"] = sdv2array(new_record["host.ip"])
+    if not(isempty(host["ip"])) then
+        host["ip"] = sdv2array(host["ip"])
     else
-        new_record["host.ip"] = nil
+        host["ip"] = nil
     end
 
-    if not(isempty(new_record["host.mac"])) then
-        new_record["host.mac"] = sdv2array(new_record["host.mac"])
+    if not(isempty(host["mac"])) then
+        host["mac"] = sdv2array(host["mac"])
     else
-        new_record["host.mac"] = nil
+        host["mac"] = nil
     end
 
-    if not(isempty(new_record["host.name"])) then
-        new_record["host.name"] = sdv2array(new_record["host.name"])
+    if not(isempty(host["name"])) then
+        host["name"] = sdv2array(host["name"])
     else
-        new_record["host.name"] = nil
+        host["name"] = nil
     end
 
-    if not(isempty(new_record["host.domain"])) then
-        new_record["host.domain"] = sdv2array(new_record["host.domain"])
+    if not(isempty(host["domain"])) then
+        host["domain"] = sdv2array(host["domain"])
     else
-        new_record["host.domain"] = nil
+        host["domain"] = nil
     end
 
     return 2, timestamp, new_record

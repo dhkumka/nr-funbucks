@@ -3,6 +3,7 @@
     "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "info",
     "!fluentLogFile": "{{ 'E:/apps_nt' if os === 'windows' else '/apps_ux'}}/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
+    "fluentLogFileEnabled": true,
     "!inputDbFile": "{{ 'E:' if os === 'windows'}}/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",

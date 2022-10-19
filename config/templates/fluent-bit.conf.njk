@@ -1,6 +1,8 @@
 [SERVICE]
     Log_Level       {{fluentLogLevel}}
+{%- if fluentLogFileEnabled %}
     Log_File        {{fluentLogFile}}
+{%- endif %}
     Parsers_File    parsers.conf
 
 {% for input in files_input -%}

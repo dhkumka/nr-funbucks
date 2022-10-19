@@ -16,3 +16,8 @@ export const TEMPLATE_CONFIG_BASEPATH = path.resolve(CONFIG_BASEPATH, 'templates
  * Default path to the output location
  */
 export const OUTPUT_BASEPATH = path.resolve(__dirname, '../../output');
+
+/**
+ * Default path to the repackage location
+ */
+export const REPACKAGE_BASEPATH = path.resolve(__dirname, '../../output_pack');

@@ -1,0 +1,37 @@
+{
+    "address": "knox",
+    "proxy": "",
+    "logsProxyDisabled": "true",
+    "os": "openshift",
+    "apps": [
+      {
+        "id": "vault",
+        "type": "hashicorp_vault",
+        "context": {
+          "environment": "production"
+        }
+      }
+    ],
+    "context": {
+      "fluentLogFileEnabled": false
+    },
+    "oc": {
+      "configmap": {
+        "metadata": {
+          "name": "fluentbit-config",
+          "labels": {
+            "helm.sh/chart": "{{ include \"vault.chart\" . }}",
+            "app.kubernetes.io/name": "{{ include \"vault.name\" . }}",
+            "app.kubernetes.io/instance": "{{ .Release.Name }}",
+            "app.kubernetes.io/managed-by": "{{ .Release.Service }}",
+            "app": "vault"
+          }
+        },
+        "prefix": "{{- if .Values.fluentbit.enable -}}\n",
+        "suffix": "\n{{- end -}}"
+      },
+      "volume": {
+        "indent": 6
+      }
+    }
+  }

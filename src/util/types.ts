@@ -25,6 +25,21 @@ export interface ServerAppConfig {
   context: object;
 }
 
+export interface OpenShiftConfigMapConfig {
+  metadata: object;
+  prefix: string;
+  suffix: string;
+}
+
+export interface OpenShiftVolumeConfig{
+  indent: number;
+}
+
+export interface OpenShiftConfig {
+  configmap: OpenShiftConfigMapConfig;
+  volume: OpenShiftVolumeConfig;
+}
+
 export interface ServerConfig {
   address: string; // Used by pipeline
   proxy: string; // Used by pipeline
@@ -34,6 +49,7 @@ export interface ServerConfig {
   apps: ServerAppConfig[];
   context: object;
   disableFluentBitMetrics: boolean;
+  oc?: OpenShiftConfig;
 }
 
 export interface BaseConfig {

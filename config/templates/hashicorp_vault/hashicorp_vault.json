@@ -1,0 +1,13 @@
+{
+  "measurementType": "historic",
+  "context": {
+    "!vaultAuditPath": "{{ localLogsPathPrefix | default('/vault/audit') }}",
+    "!inputDbFile": "{{ '/tmp/fluent-bit-logs.db' if outputLocalLambdaEnabled else '/vault/audit/fluent-bit-logs.db' }}"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"},
+    { "tmpl": "lua/audit.lua", "type": "lua"}
+  ]
+}

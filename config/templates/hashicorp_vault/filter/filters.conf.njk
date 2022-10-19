@@ -1,0 +1,30 @@
+{% import "../../macros/lua.njk" as lua %}
+{{ lua.renderLua(typeTag + '.log', typeTag + '/lua/audit.lua', 'construct_log_message') }}
+{{ lua.renderAppendTimestamp(typeTag + '.*') }}
+[FILTER]
+    Name modify
+    Match {{typeTag}}.audit
+    Add event.dataset vault.audit
+{{ lua.renderLua(typeTag + '.audit', typeTag + '/lua/audit.lua', 'remove_nested_fields') }}
+{{ lua.renderLua(typeTag + '.audit', typeTag + '/lua/audit.lua', 'forwarded_for_to_source_ip') }}
+[FILTER]
+    Name modify
+    Match {{typeTag}}.audit
+    Remove agent.type
+    Remove agent.version
+    Remove agent.name
+
+[FILTER]
+    Name modify
+    Match {{typeTag}}.*
+    Add event.kind event
+    Add event.category web
+    Add @metadata.keyAsPath true
+    Add service.name knox
+    Add service.type hashicorp_vault
+    Add service.environment {% if outputLocalLambdaEnabled %}development{% endif %}{% if not outputLocalLambdaEnabled %}{% raw %}{{ .Values.global.environment }}{% endraw %}{% endif %}
+[FILTER]
+    Name    lua
+    Match   {{typeTag}}.audit
+    script  {{typeTag}}/lua/audit.lua
+    call    cb_json

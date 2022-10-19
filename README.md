@@ -65,7 +65,7 @@ $ npm install -g nr-funbucks
 $ nr-funbucks COMMAND
 running command...
 $ nr-funbucks (--version)
-nr-funbucks/1.0.0 darwin-x64 node-v17.8.0
+nr-funbucks/1.0.0 darwin-x64 node-v16.17.1
 $ nr-funbucks --help [COMMAND]
 USAGE
   $ nr-funbucks COMMAND
@@ -77,6 +77,7 @@ USAGE
 * [`nr-funbucks gen`](#nr-funbucks-gen)
 * [`nr-funbucks help [COMMAND]`](#nr-funbucks-help-command)
 * [`nr-funbucks monitors`](#nr-funbucks-monitors)
+* [`nr-funbucks oc`](#nr-funbucks-oc)
 * [`nr-funbucks plugins`](#nr-funbucks-plugins)
 * [`nr-funbucks plugins:install PLUGIN...`](#nr-funbucks-pluginsinstall-plugin)
 * [`nr-funbucks plugins:inspect PLUGIN...`](#nr-funbucks-pluginsinspect-plugin)
@@ -129,7 +130,7 @@ DESCRIPTION
   Display help for nr-funbucks.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.15/src/commands/help.ts)_
 
 ## `nr-funbucks monitors`
 
@@ -151,6 +152,26 @@ EXAMPLES
 
 _See code: [dist/commands/monitors.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/monitors.ts)_
 
+## `nr-funbucks oc`
+
+repackage fluentbit configuration for OC
+
+```
+USAGE
+  $ nr-funbucks oc -s <value>
+
+FLAGS
+  -s, --server=<value>  (required) server to render the config for
+
+DESCRIPTION
+  repackage fluentbit configuration for OC
+
+EXAMPLES
+  $ nr-funbucks oc
+```
+
+_See code: [dist/commands/oc.ts](https://github.com/mbystedt/hello-world/blob/v1.0.0/dist/commands/oc.ts)_
+
 ## `nr-funbucks plugins`
 
 List installed plugins.
@@ -169,7 +190,7 @@ EXAMPLES
   $ nr-funbucks plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.4/src/commands/plugins/index.ts)_
 
 ## `nr-funbucks plugins:install PLUGIN...`
 
@@ -189,7 +210,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -198,11 +218,12 @@ DESCRIPTION
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
 
+
 ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -249,7 +270,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -258,11 +278,12 @@ DESCRIPTION
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
 
+
 ALIASES
   $ nr-funbucks plugins add
 
 EXAMPLES
-  $ nr-funbucks plugins:install myplugin
+  $ nr-funbucks plugins:install myplugin 
 
   $ nr-funbucks plugins:install https://github.com/someuser/someplugin
 
@@ -286,11 +307,11 @@ FLAGS
 
 DESCRIPTION
   Links a plugin into the CLI for development.
-
   Installation of a linked plugin will override a user-installed or core plugin.
 
   e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
   command will override the user-installed or core plugin implementation. This is useful for development work.
+
 
 EXAMPLES
   $ nr-funbucks plugins:link myplugin
