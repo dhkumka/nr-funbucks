@@ -11,7 +11,7 @@
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}{% if environment %}
     Add service.environment {{ environment }}{% endif %}
-    Add process.name ${AGENT_NAME}
+    Add process.name fluent-bit.exe
     Add @metadata.keyAsPath true
 
 [FILTER]
