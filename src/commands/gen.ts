@@ -53,24 +53,24 @@ export default class Gen extends Command {
         await serviceArr[agentCount].init(flags.local);
         if (!flags.local && !serverConfig.disableFluentBitMetrics) {
           // Add fluent bit metrics for every agent
-          if (serverConfig.os === 'linux') {
-            serviceArr[agentCount].writeApp({
-              id: `metrics_fluentbit_process`,
-              type: 'metric_s6_process',
-              context: {
-                'app': 'fluentbit',
-                'component': `fluent-bit.${agentCount}`,
-                'childProcess': true,
-              },
-            }, serverConfig, flags.context);
-          }
-          if (serverConfig.os === 'windows') {
-            serviceArr[agentCount].writeApp({
-              id: `metric_process_windows`,
-              type: 'metric_process_windows',
-              context: {},
-            }, serverConfig, flags.context);
-          }
+          serviceArr[agentCount].writeApp({
+            id: `metrics_fluentbit_process`,
+            type: 'metric_s6_process',
+            context: {
+              'app': 'fluentbit',
+              'component': `fluent-bit.${agentCount}`,
+              'childProcess': true,
+            },
+          }, serverConfig, flags.context);
+          serviceArr[agentCount].writeApp({
+            id: `metric_process_windows`,
+            type: 'metric_process_windows',
+            context: {
+              'app': 'fluentbit',
+              'component': `fluent-bit.${agentCount}`,
+              'childProcess': true,
+            },
+          }, serverConfig, flags.context);
         }
       }
       if (flags.app === undefined || flags.app === app.id) {
