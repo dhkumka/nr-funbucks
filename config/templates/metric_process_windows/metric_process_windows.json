@@ -5,7 +5,7 @@
       "app": "apm",
       "component": "fluent-bit",
       "processName": "fluent-bit",
-      "inputIntervalSec": 60
+      "inputIntervalSec": 30
     },
     "files": [
       { "tmpl": "filter/filters.conf.njk", "type": "filter"},
