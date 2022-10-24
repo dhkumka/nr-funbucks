@@ -62,6 +62,15 @@ export default class Gen extends Command {
               'childProcess': true,
             },
           }, serverConfig, flags.context);
+          serviceArr[agentCount].writeApp({
+            id: `metric_process_windows`,
+            type: 'metric_process_windows',
+            context: {
+              'app': 'fluentbit',
+              'component': `fluent-bit.${agentCount}`,
+              'childProcess': true,
+            },
+          }, serverConfig, flags.context);
         }
       }
       if (flags.app === undefined || flags.app === app.id) {
