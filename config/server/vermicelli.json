@@ -2,6 +2,9 @@
   "address": "vermicelli.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
+  "vault_cd_user_field": "username_lowercase",
+  "vault_cd_pass_field": "password",
+  "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
   "apps": [
     {"id": "cpu", "type": "metric_host_cpu", "context": {}},
     {"id": "disk", "type": "metric_host_disk", "context": {}},
