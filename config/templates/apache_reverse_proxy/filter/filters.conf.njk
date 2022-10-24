@@ -5,5 +5,6 @@
     Add event.category web
     Add event.dataset apache.access{% if environment %}
     Add service.environment {{ environment }}{% endif %}
+    Add service.name apache-reverse-proxy
     Add @metadata.keyAsPath true
     Rename message event.original
