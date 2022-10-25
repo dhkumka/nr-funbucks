@@ -213,3 +213,38 @@ function construct_log_message(tag, timestamp, record)
     copy_to_new_message("host", "host", record, new_record)
     return 2, timestamp, new_record
 end
+
+pathEnvToStandardEnv = {}
+pathEnvToStandardEnv["prod"] = "production"
+pathEnvToStandardEnv["test"] = "test"
+pathEnvToStandardEnv["dev"] = "development"
+
+function path_to_service_target(tag, timestamp, record)
+    new_record = record
+    code = 0
+    if new_record["request"] ~= nil and new_record["request"]["path"] ~= nil then
+        local path = new_record["request"]["path"]
+        if string.sub(path, 0, 5) == "apps/" then
+            local path_segment = {}
+            for i in string.gmatch(path, "[^/]+") do
+                path_segment[#path_segment + 1] = i
+            end
+            local env = path_segment[3]
+            local project = path_segment[4]
+            local service = path_segment[5]
+            if env ~= nil and pathEnvToStandardEnv[env] ~= nil then
+                record["service.target.environment"] = pathEnvToStandardEnv[env]
+                code = 2
+            end
+            if project ~= nil then
+                record["labels.target_project"] = project
+                code = 2
+            end
+            if service ~= nil then
+                record["service.target.name"] = service
+                code = 2
+            end
+        end
+    end
+    return code, timestamp, new_record
+end
