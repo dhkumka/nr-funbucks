@@ -42,8 +42,12 @@ function add_host_metadata(tag, timestamp, record)
 
     host["ip"] = os.getenv("HOST_IP")
     host["mac"] = os.getenv("HOST_MAC")
-    host["name"] = string.lower(os.getenv("HOST_NAME"))
-    host["hostname"] = string.lower(os.getenv("HOST_HOSTNAME"))
+    if os.getenv("HOST_NAME") ~= nil then
+        host["name"] = string.lower(os.getenv("HOST_NAME"))
+    end
+    if os.getenv("HOST_HOSTNAME") ~= nil then
+        host["hostname"] = string.lower(os.getenv("HOST_HOSTNAME"))
+    end
     host["domain"] = os.getenv("HOST_DOMAIN")
     host["architecture"] = os.getenv("HOST_ARCH")
 
@@ -63,12 +67,6 @@ function add_host_metadata(tag, timestamp, record)
         host["name"] = sdv2array(host["name"])
     else
         host["name"] = nil
-    end
-
-    if not(isempty(host["hostname"])) then
-        host["hostname"] = sdv2array(host["hostname"])
-    else
-        host["hostname"] = nil
     end
 
     if not(isempty(host["domain"])) then
