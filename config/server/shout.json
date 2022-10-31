@@ -10,7 +10,15 @@
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}}
+    {"id": "network", "type": "metric_host_network", "context": {}},
+    {
+      "id": "isss-prd-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "isss-prd",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrprd{% else %}/sw_ux/httpd01/logs/hot{% endif %}/*-access*.log"
+      }
+    }
   ],
   "context": {}
 }
