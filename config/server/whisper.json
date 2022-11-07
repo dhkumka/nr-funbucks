@@ -10,7 +10,39 @@
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}}
+    {"id": "network", "type": "metric_host_network", "context": {}},
+    {
+      "id": "isss-int-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "isss-int",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrint{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-i1*-access*.log"
+      }
+    },
+    {
+      "id": "isss-tst-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "isss-tst",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrtst{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-t1*-access*.log"
+      }
+    },
+    {
+      "id": "isss-s1-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "isss-stg1",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg1{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-s1*-access*.log"
+      }
+    },
+    {
+      "id": "isss-s2-rp",
+      "type": "apache_reverse_proxy",
+      "context": {
+        "environment": "isss-stg2",
+        "!logs_path": "{% if localLogsPathPrefix %}{{localLogsPathPrefix}}/nrstg2{% else %}/sw_ux/httpd01/logs/hot{% endif %}/whisper-httpd01-s2*-access*.log"
+      }
+    }
   ],
   "context": {}
 }
