@@ -219,16 +219,23 @@ pathEnvToStandardEnv["prod"] = "production"
 pathEnvToStandardEnv["test"] = "test"
 pathEnvToStandardEnv["dev"] = "development"
 
+function parse_string(str, pattern)
+    local path_arr={}
+    for i in string.gmatch(str, pattern) do
+        path_arr[#path_arr + 1] = i
+    end
+    return path_arr
+end
+
+
 function path_to_service_target(tag, timestamp, record)
     new_record = record
     code = 0
     if new_record["request"] ~= nil and new_record["request"]["path"] ~= nil then
         local path = new_record["request"]["path"]
-        if string.sub(path, 0, 5) == "apps/" then
-            local path_segment = {}
-            for i in string.gmatch(path, "[^/]+") do
-                path_segment[#path_segment + 1] = i
-            end
+        local path_segment = {}
+        if string.sub(path, 0, 5) == "apps/" then            
+            path_segment = parse_string(path,"[^/]+")            
             local env = path_segment[3]
             local project = path_segment[4]
             local service = path_segment[5]
@@ -243,6 +250,29 @@ function path_to_service_target(tag, timestamp, record)
             if service ~= nil then
                 record["service.target.name"] = service
                 code = 2
+            end
+        end
+        if string.sub(path, 0, 7) == "groups/" then
+            path_segment = parse_string(path,"[^/]+")
+            local groupname = path_segment[3]
+            local service = path_segment[4]            
+            if groupname ~= nil then
+                record["source.user.group.name"] = groupname
+                code = 2
+            end
+            if service ~= nil then
+                local service_array=parse_string(service,"[^-]+")
+                local project=service_array[1]
+                local service_target =service_array[2]
+                if project ~= nil then
+                    record["labels.target_project"] = project
+                    code = 2
+                end
+                
+                if project ~= nil and service_target ~= nil then
+                    record["service.target.name"] = project.. "_" .. service_target
+                    code = 2
+                end
             end
         end
     end
