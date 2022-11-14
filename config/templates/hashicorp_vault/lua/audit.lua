@@ -224,8 +224,8 @@ function path_to_service_target(tag, timestamp, record)
     code = 0
     if new_record["request"] ~= nil and new_record["request"]["path"] ~= nil then
         local path = new_record["request"]["path"]
-        if string.sub(path, 0, 5) == "apps/" then            
-            local path_segment = {}
+        local path_segment = {}
+        if string.sub(path, 0, 5) == "apps/" then 
             for i in string.gmatch(path, "[^/]+") do
                 path_segment[#path_segment + 1] = i
             end            
@@ -246,7 +246,6 @@ function path_to_service_target(tag, timestamp, record)
             end
         end
         if string.sub(path, 0, 7) == "groups/" then
-            local path_segment = {}
             for i in string.gmatch(path, "[^/]+") do
                 path_segment[#path_segment + 1] = i
             end
