@@ -21,9 +21,7 @@
     Add event.kind event
     Add event.category web
     Add event.dataset wso2.carbon
-    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
-    Add log.file.path /unknown.log
-    Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if tmplTomcatTestApplicationIndex %}
     Add @metadata.index {{ tmplTomcatTestApplicationIndex }}{% endif %}
 
 # Application fields

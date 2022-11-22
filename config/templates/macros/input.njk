@@ -21,10 +21,10 @@
     Name              tail
     Tag               {{tag}}
     Path              {{path}}
-    multiline.parser  {{parserName}}{% if shimDisableMultilineKey %}{% else %}
+    multiline.parser  {{parserName}}
     Path_Key          log_file_path
     Offset_Key        event_sequence
-    Key               message{% endif %}
+    Key               message
     DB                {{inputDbFile}}
     Read_from_Head    True
     Mem_Buf_Limit     {{ inputTailMemBufLimit }}

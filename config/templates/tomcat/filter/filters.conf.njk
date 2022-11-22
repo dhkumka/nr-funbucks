@@ -46,9 +46,7 @@
     Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
-    Add event.dataset tomcat.localhost{% if shimDisableMultilineKey %}
-    Add log.file.path /unknown.log
-    Add event.sequence 0{% endif %}{% if tmplTomcatTestLocalhostIndex %}
+    Add event.dataset tomcat.localhost{% if tmplTomcatTestLocalhostIndex %}
     @metadata.index {{ tmplTomcatTestLocalhostIndex }}{% endif %}
 
 # Tomcat catalina
@@ -59,9 +57,7 @@
     Rename tomcat_time @timestamp
     Add event.kind event
     Add event.category web
-    Add event.dataset tomcat.catalina{% if shimDisableMultilineKey %}
-    Add log.file.path /unknown.log
-    Add event.sequence 0{% endif %}{% if tmplTomcatTestCatalinaIndex %}
+    Add event.dataset tomcat.catalina{% if tmplTomcatTestCatalinaIndex %}
     @metadata.index {{ tmplTomcatTestCatalinaIndex }}{% endif %}
 
 # App logs (generic)
@@ -73,9 +69,7 @@
     Add event.kind event
     Add event.category web
     Add event.dataset application.log
-    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if shimDisableMultilineKey %}
-    Add log.file.path /unknown.log
-    Add event.sequence 0{% endif %}{% if tmplTomcatTestApplicationIndex %}
+    Add @metadata.timestampFormat YYYY-MM-DD-HH:mm:ss.SSS{% if tmplTomcatTestApplicationIndex %}
     Add @metadata.index {{ tmplTomcatTestApplicationIndex | safe }}{% endif %}
 
 # Application fields

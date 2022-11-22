@@ -9,8 +9,7 @@
     "inputTailIgnoreOlder": "7d",
     "outputAwsKinesisRetryLimit": 3,
     "outputAwsKinesisEnabled": true,
-    "outputStdoutEnabled": false,
-    "shimDisableMultilineKey": true
+    "outputStdoutEnabled": false
   },
   "localContextOverride": {
     "appPathJq": "jq",
@@ -30,5 +29,5 @@
     { "tmpl": "parsers.conf.njk" },
     { "tmpl": "timestamp.lua" }
   ],
-  "fluentBitRelease": "1.9.6"
+  "fluentBitRelease": "2.0.5"
 }
