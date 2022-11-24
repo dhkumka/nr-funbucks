@@ -108,7 +108,7 @@
           "app": "CIRRAS",
           "component": "cirras-policies-api",
           "startAppParserRegex": "/^\\[\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(?:.\\d{3}?).*$/",
-          "contAppParserRegex": "/^(\\[\\D|[^\\[]).*/",
+          "contAppParserRegex": "/^(?:\\[\\D|[^\\[]).*/",
           "appParserFilterRegex": "(?m)^\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)\\](\\s+)\\[(?<level>\\w+)\\s*\\][\\s:]*(?<message_parsed>.*)"
         }
       },
