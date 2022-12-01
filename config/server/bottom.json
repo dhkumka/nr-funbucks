@@ -540,7 +540,8 @@
       "type": "tomcat",
       "context": {
         "app": "webade",
-        "component": "webade-access-invitation-api"
+        "component": "webade-access-invitation-api",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}-{{environment | lower }}.log"
       }
     },
     {
@@ -564,7 +565,8 @@
       "type": "tomcat",
       "context": {
         "app": "webade",
-        "component": "webade-adam"
+        "component": "webade-adam",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}*.log"
       }
     }
   ],
