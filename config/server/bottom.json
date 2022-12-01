@@ -564,8 +564,7 @@
       "type": "tomcat",
       "context": {
         "app": "webade",
-        "component": "webade-adam",       
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/{{ component | lower }}*.log"
+        "component": "webade-adam"
       }
     }
   ],
