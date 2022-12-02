@@ -2,6 +2,7 @@
   "address": "district.bcgov",
   "proxy": "http://test-forwardproxy.nrs.bcgov:23128",
   "os": "linux",
+  "os_variant": "rhel7",
   "vault_cd_user_field": "username_lowercase",
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
