@@ -7,9 +7,9 @@ timeout .5 df -P | grep {{mountPath}}$ | \
         disk: gsub(" +"; " ") | gsub("\n"; "") | split(" ") | {
           mount: .[5] ,
           total: .[1] | tonumber,
-          free: .[2] | tonumber,
-          used: ((.[1] | tonumber) - (.[2] | tonumber)),
-          used_percentage: (((.[1] | tonumber) - (.[2] | tonumber)) / (.[1] | tonumber))
+          free: .[3] | tonumber,
+          used: .[2] | tonumber,
+          used_percentage: ((.[2] | tonumber) / ((.[2] | tonumber) + (.[3] | tonumber)))
         }
       } else empty end)
     }' | \

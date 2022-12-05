@@ -7,7 +7,7 @@ timeout .5 df -P | \
         split("\n") |
         .[] |
         if test("^/") then
-          gsub(" +"; " ") | split(" ") | {mount: .[0], total: .[1], available: .[2]}
+          gsub(" +"; " ") | split(" ") | {mount: .[0], total: .[1], used: .[2], available: .[3]}
         else
           empty
         end

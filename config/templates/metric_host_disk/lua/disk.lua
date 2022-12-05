@@ -14,8 +14,8 @@ function multiplex_disk_stats(tag, timestamp, record)
       new_record[k]["host.disk.mount"] = v["mount"]
       new_record[k]["host.disk.total"] = tonumber(v["total"])
       new_record[k]["host.disk.free"] = tonumber(v["available"])
-      new_record[k]["host.disk.used"] = tonumber(v["total"]) - tonumber(v["available"])
-      new_record[k]["host.disk.used_percentage"] = new_record[k]["host.disk.used"] / tonumber(v["total"])
+      new_record[k]["host.disk.used"] = tonumber(v["used"])
+      new_record[k]["host.disk.used_percentage"] = new_record[k]["host.disk.used"] / (tonumber(v["used"]) + tonumber(v["available"]))
 
       new_record[k]["disk"] = nil
       count = count + 1
