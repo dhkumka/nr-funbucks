@@ -249,24 +249,10 @@ function path_to_service_target(tag, timestamp, record)
             for i in string.gmatch(path, "[^/]+") do
                 path_segment[#path_segment + 1] = i
             end
-            local service = path_segment[4] 
+            local groupname = path_segment[3] 
             if service ~= nil then
-                local service_array ={}                
-                for i in string.gmatch(service, "[^-]+") do
-                    service_array[#service_array + 1] = i
-                end
-
-                local project=service_array[1]
-                local service_target =service_array[2]
-                if project ~= nil then
-                    record["labels.target_project"] = project
-                    code = 2
-                end
-                
-                if project ~= nil and service_target ~= nil then
-                    record["service.target.name"] = project.. "_" .. service_target
-                    code = 2
-                end
+                record["group.name"]=groupname
+                code =2                 
             end
         end
     end
