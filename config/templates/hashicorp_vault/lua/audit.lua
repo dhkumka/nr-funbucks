@@ -228,7 +228,7 @@ function path_to_service_target(tag, timestamp, record)
         if string.sub(path, 0, 5) == "apps/" then 
             for i in string.gmatch(path, "[^/]+") do
                 path_segment[#path_segment + 1] = i
-            end            
+            end       
             local env = path_segment[3]
             local project = path_segment[4]
             local service = path_segment[5]
@@ -250,7 +250,7 @@ function path_to_service_target(tag, timestamp, record)
                 path_segment[#path_segment + 1] = i
             end
             local groupname = path_segment[3] 
-            if service ~= nil then
+            if groupname ~= nil then
                 record["group.name"]=groupname
                 code =2                 
             end
