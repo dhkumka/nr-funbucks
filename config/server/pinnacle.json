@@ -36,6 +36,15 @@
       }
     },
     {
+      "id": "dispatch-middleware-war-trappist",
+      "type": "tomcat",
+      "context": {
+        "app": "dispatch",
+        "component": "dispatch-middleware-war",
+        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/trappist.log"
+      }
+    },
+    {
       "id": "dispatch-webapps-war",
       "type": "tomcat",
       "context": {
