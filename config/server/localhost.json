@@ -2,6 +2,7 @@
   "address": "localhost",
   "fluentBitRelease": "2.0.5",
   "os": "linux",
+  "os_variant": "rhel7",
   "apps": [
     {
       "type": "metric_host_cpu", "context": {
