@@ -13,7 +13,7 @@ fi
 if [ "true" == $up ]
   then
     procStatArray=($(cat /proc/${pid}/stat))
-    topStat=($(top -b -n 2 -d 1 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
+    topStat=($(top -b -n 2 -d 1 -w 512 -p ${pid} | tail -1 | sed 's/\s\s*/\n/g'))
     topStat[8]=$(echo "scale=6; ${topStat[8]} / 100" | bc)
     topStat[9]=$(echo "scale=6; ${topStat[9]} / 100" | bc)
     healthCheck=""
