@@ -17,6 +17,7 @@
       "type": "apache_reverse_proxy",
       "context": {
         "environment": "wfprd",
+        "eventDataset": "apache.access.internal",
         "logs_path": "/sw_ux/httpd01/logs/hot/*-access*.log"
       }
     }

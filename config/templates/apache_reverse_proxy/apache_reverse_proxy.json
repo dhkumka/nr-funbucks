@@ -1,6 +1,7 @@
 {
   "measurementType": "historic",
   "context": {
+    "eventDataset": "apache.access"
   },
   "files": [
     { "tmpl": "filter/filters.conf.njk", "type": "filter"},
