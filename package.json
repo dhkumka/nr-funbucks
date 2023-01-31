@@ -4,8 +4,9 @@
   "description": "Funbucks - A fluentbit configuration generator",
   "author": "Matthew Bystedt",
   "bin": {
-    "oclif-hello-world": "./bin/run"
+    "funbucks": "./bin/run"
   },
+  "bundledDependencies": true,
   "homepage": "https://github.com/mbystedt/hello-world",
   "license": "Apache-2.0",
   "main": "dist/index.js",
