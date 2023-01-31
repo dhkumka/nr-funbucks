@@ -95,8 +95,12 @@ export class RenderService {
    * @returns Promise resolved when everything cleaned
    */
   public static clean(): Promise<void> {
-    fs.rmSync(OUTPUT_BASEPATH, {recursive: true, force: true});
-    fs.mkdirSync(OUTPUT_BASEPATH);
+    try {
+      fs.rmSync(OUTPUT_BASEPATH, {recursive: true, force: true});
+      fs.mkdirSync(OUTPUT_BASEPATH);
+    } catch (err) {
+      // ignore
+    }
     return Promise.resolve();
   }
 

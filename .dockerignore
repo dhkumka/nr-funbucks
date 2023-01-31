@@ -1,4 +1,14 @@
+# git things
+.git
+.github
+
+# No docs
+*.md
+
 node_modules
 npm-debug.log
-output
-lambda
+/output
+/output_pack
+/lambda
+/scripts
+/test
