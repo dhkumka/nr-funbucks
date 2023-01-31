@@ -21,15 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ secrets.ARTIFACTORY_REGISTRY }}/nr-funbucks
-          flavor: latest=true
-          tags: |
-            type=semver,pattern={{version}}
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -53,7 +44,7 @@ jobs:
         with:
           context: ./
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.ARTIFACTORY_REGISTRY }}/nr-funbucks:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
