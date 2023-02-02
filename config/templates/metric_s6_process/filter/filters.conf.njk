@@ -10,5 +10,6 @@
     Add event.type info
     Add labels.project {{ app | lower }}
     Add service.name {{ component | lower }}{% if environment %}
-    Add service.environment {{ environment }}{% endif %}
+    Add service.environment {{ environment }}{% endif %}{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}
     Add @metadata.keyAsPath true
