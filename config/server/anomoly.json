@@ -93,16 +93,6 @@
       }
     },
     {
-      "id": "cfsweb-war",
-      "type": "tomcat",
-      "context": {
-        "app": "CFSWEB",
-        "component": "cfsweb-war",
-        "!logs_path_app": "/apps_ux/logs/{{ app | upper }}/{{ component | lower }}/cfsweb*.log",
-        "appParserFilterRegex": "(?m)^(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?):(\\s+)(?<level>\\w+)[\\s:]*(?<message_parsed>.*)"
-      }
-    },
-    {
       "id": "cirras-claims-api",
       "type": "tomcat",
       "context": {
@@ -188,14 +178,6 @@
       "context": {
         "app": "EYOR",
         "component": "eyor-portlet"
-      }
-    },
-    {
-      "id": "ffs-server-war",
-      "type": "tomcat",
-      "context": {
-        "app": "FFS",
-        "component": "ffs-server-war"
       }
     },
     {
@@ -380,6 +362,46 @@
       "context": {
         "app": "NRISWS",
         "component": "nrisws-api"
+      }
+    },
+    {
+      "id": "nrmcfs-acs-war",
+      "type": "tomcat",
+      "context": {
+        "app": "NRMCFS",
+        "component": "nrmcfs-acs-war"
+      }
+    },
+    {
+      "id": "nrmcfs-cfsweb-war",
+      "type": "tomcat",
+      "context": {
+        "app": "NRMCFS",
+        "component": "nrmcfs-cfsweb-war"
+      }
+    },
+    {
+      "id": "nrmcfs-ffs-admin-war",
+      "type": "tomcat",
+      "context": {
+        "app": "NRMCFS",
+        "component": "nrmcfs-ffs-admin-war"
+      }
+    },
+    {
+      "id": "nrmcfs-ffs-server-war",
+      "type": "tomcat",
+      "context": {
+        "app": "NRMCFS",
+        "component": "nrmcfs-ffs-server-war"
+      }
+    },
+    {
+      "id": "nrmcfs-fsbwhse-admin-war",
+      "type": "tomcat",
+      "context": {
+        "app": "NRMCFS",
+        "component": "nrmcfs-fsbwhse-admin-war"
       }
     },
     {
