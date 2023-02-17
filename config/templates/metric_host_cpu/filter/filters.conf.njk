@@ -6,7 +6,9 @@
     Match {{typeTag}}
     Add event.kind metric
     Add event.category host
-    Add event.dataset host.cpu
+    Add event.dataset host.cpu{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
     Rename cpu_p host.cpu.usage
     Rename user_p host.cpu.user
     Rename system_p host.cpu.system

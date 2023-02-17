@@ -7,7 +7,9 @@
     Add event.kind metric
     Add event.category host
     Add event.dataset host.network
-    Add host.network.interface {{inputInterface}}
+    Add host.network.interface {{inputInterface}}{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
     Rename {{inputInterface}}.rx.bytes host.network.ingress.bytes
     Rename {{inputInterface}}.rx.packets host.network.ingress.packets
     Rename {{inputInterface}}.rx.errors host.network.ingress.errors

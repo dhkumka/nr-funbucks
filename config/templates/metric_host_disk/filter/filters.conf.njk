@@ -6,7 +6,9 @@
     Match {{typeTag}}
     Add event.kind metric
     Add event.category host
-    Add event.dataset host.disk_usage
+    Add event.dataset host.disk_usage{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
     Add @metadata.keyAsPath true
 
 {{ lua.renderLua(typeTag, typeTag + '/lua/disk.lua', 'multiplex_disk_stats') }}

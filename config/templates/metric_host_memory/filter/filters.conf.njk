@@ -6,7 +6,9 @@
     Match {{typeTag}}
     Add event.kind metric
     Add event.category host
-    Add event.dataset host.memory
+    Add event.dataset host.memory{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
     Rename Mem.total host.memory.total
     Rename Mem.used host.memory.used
     Rename Mem.free host.memory.free

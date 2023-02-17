@@ -3,7 +3,9 @@
     Match {{typeTag}}
     Add event.kind event
     Add event.category web
-    Add event.dataset {{ eventDataset }}{% if environment %}
+    Add event.dataset {{ eventDataset }}{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}{% if environment %}
     Add service.environment {{ environment }}{% endif %}
     Add service.name apache-reverse-proxy
     Add service.type apache

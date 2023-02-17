@@ -5,8 +5,7 @@
     Add agent.type fluentbit{% if not outputLocalLambdaEnabled %}
     Add agent.version ${FLUENT_VERSION}
     Add agent.name ${AGENT_NAME}{% endif %}
-    Add ecs.version 8.4{% if organization_name %}
-    Add organization.name {{ organization_name }}{% endif %}
+    Add ecs.version 8.4
     Rename event_sequence event.sequence
     Rename log_file_path log.file.path
 

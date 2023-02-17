@@ -8,7 +8,9 @@
     Add event.category process
     Add event.dataset process.info
     Add event.type info
-    Add labels.project {{ app | lower }}
+    Add labels.project {{ app | lower }}{% if organization_id %}
+    Add organization.id {{ organization_id }}{% endif %}{% if organization_name %}
+    Add organization.name {{ organization_name }}{% endif %}
     Add service.name {{ component | lower }}{% if environment %}
     Add service.environment {{ environment }}{% endif %}
     Rename pid process.pid
