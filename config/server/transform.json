@@ -11,8 +11,8 @@
     {"id": "disk", "type": "metric_host_disk", "context": {}},
     {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
     {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}}
-     {
+    {"id": "network", "type": "metric_host_network", "context": {}},
+    {
       "id": "wfprd-wso2",
       "type": "wso2",
       "context": {
