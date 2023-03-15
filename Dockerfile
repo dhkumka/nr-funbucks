@@ -18,7 +18,6 @@ WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/bin ./bin
-COPY --from=builder /app/config ./config
 COPY --from=builder /app/package.json ./package.json
 
 VOLUME /app/config
