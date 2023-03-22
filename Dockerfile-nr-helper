@@ -1,0 +1,9 @@
+# NR helper image
+ARG REPO_LOCATION=
+FROM ${REPO_LOCATION}bash:5.2
+
+RUN apk add --no-cache jq
+WORKDIR /app
+VOLUME /app/scripts
+
+ENTRYPOINT [ "bash" ]
