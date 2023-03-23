@@ -199,6 +199,14 @@
       }
     },
     {
+      "id": "wfnews-wfim-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfnews",
+        "component": "wfnews-wfim-incident-sync-api"
+      }
+    },
+    {
       "id": "wfone-portal-api",
       "type": "tomcat",
       "context": {
