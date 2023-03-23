@@ -275,6 +275,14 @@
       }
     },
     {
+      "id": "wfnews-wfim-incident-sync-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfnews",
+        "component": "wfnews-wfim-incident-sync-api"
+      }
+    },
+    {
       "id": "wfone-portal-api-wfdlv",
       "type": "tomcat",
       "context": {
