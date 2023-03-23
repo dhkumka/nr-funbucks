@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./
-          dockerfile: ./Dockerfile-nr-helper
+          file: ./Dockerfile-nr-helper
           push: true
           tags: ${{ secrets.ARTIFACTORY_REGISTRY }}/nr-helper:dev
           cache-from: type=gha
