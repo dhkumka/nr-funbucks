@@ -1,6 +1,6 @@
 # Continuous Integration
 
-name: Build and push dev nr helper image
+name: Build and push dev fb helper image
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build-push-image:
-    name: Build and push dev nr helper image
+    name: Build and push dev fb helper image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -39,9 +39,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./
-          file: ./Dockerfile-nr-helper
+          file: ./Dockerfile-fb-helper
           push: true
-          tags: ${{ secrets.ARTIFACTORY_REGISTRY }}/nr-helper:dev
+          tags: ${{ secrets.ARTIFACTORY_REGISTRY }}/fb-helper:dev
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
