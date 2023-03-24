@@ -2,7 +2,7 @@
 ARG REPO_LOCATION=
 FROM ${REPO_LOCATION}bash:5.2
 
-RUN apk add --no-cache jq curl
+RUN apk add --no-cache jq curl sshpass
 WORKDIR /app
 VOLUME /app/scripts
 
