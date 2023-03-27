@@ -20,6 +20,24 @@
         "component": "api-manager",
         "environment": "wftst"
       }
+    },
+    {
+      "id": "wftst-fmeserver",
+      "type": "tomcat",
+      "context": {
+        "app": "fmeserver",
+        "component": "fmeserver",
+        "environment": "wftst"
+      }
+    },
+    {
+      "id": "wftst-jcrs",
+      "type": "tomcat",
+      "context": {
+        "app": "jaspersoft",
+        "component": "jaspersoft-bi",
+        "environment": "wftst"
+      }
     }
   ],
   "context": {}
