@@ -20,6 +20,24 @@
         "component": "api-manager",
         "environment": "wfprd"
       }
+    },
+    {
+      "id": "wfprd-fmeserver",
+      "type": "tomcat",
+      "context": {
+        "app": "fmeserver",
+        "component": "fmeserver",
+        "environment": "wfprd"
+      }
+    },
+    {
+      "id": "wfprd-jcrs",
+      "type": "tomcat",
+      "context": {
+        "app": "jasperserver",
+        "component": "jaspersoft-bi",
+        "environment": "wfprd"
+      }
     }
   ],
   "context": {}
