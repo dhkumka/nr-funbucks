@@ -19,9 +19,9 @@
         "app": "wso2",
         "component": "api-manager",
         "environment": "wftst"
-      },
-    }
-        {
+      }
+    },
+    {
       "id": "wftst-fmeserver",
       "type": "tomcat",
       "context": {
