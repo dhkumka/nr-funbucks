@@ -13,11 +13,12 @@
     {"id": "memory", "type": "metric_host_memory", "context": {"environment": "wfdlv"}},
     {"id": "network", "type": "metric_host_network", "context": {"environment": "wfdlv"}},
     {
-      "id": "wfprd-wso2",
+      "id": "wfdlv-wso2",
       "type": "wso2",
       "context": {
         "app": "wso2",
         "component": "api-manager",
+        "!logs_path_app": "/sw_ux/wso2/wso2am410/repository/logs/wso2carbon.log",
         "environment": "wfdlv"
       }
     },
