@@ -7,17 +7,18 @@
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
   "apps": [
-    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
-    {"id": "disk", "type": "metric_host_disk", "context": {}},
-    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
-    {"id": "memory", "type": "metric_host_memory", "context": {}},
-    {"id": "network", "type": "metric_host_network", "context": {}},
+    {"id": "cpu", "type": "metric_host_cpu", "context": {"environment": "wfprd"}},
+    {"id": "disk", "type": "metric_host_disk", "context": {"environment": "wfprd"}},
+    {"id": "disk_named", "type": "metric_host_disk_named", "context": {"environment": "wfprd"}},
+    {"id": "memory", "type": "metric_host_memory", "context": {"environment": "wfprd"}},
+    {"id": "network", "type": "metric_host_network", "context": {"environment": "wfprd"}},
     {
       "id": "wfprd-wso2",
       "type": "wso2",
       "context": {
         "app": "wso2",
         "component": "api-manager",
+        "!logs_path_app": "/sw_ux/wso2/wso2am410/repository/logs/wso2carbon.log",
         "environment": "wfprd"
       }
     },
@@ -27,6 +28,7 @@
       "context": {
         "app": "fmeserver",
         "component": "fmeserver",
+        "!logs_path_app": "/sw_ux/fme/fmeserver/resources/logs/core/current/fmeserver.log",
         "environment": "wfprd"
       }
     },
@@ -36,6 +38,7 @@
       "context": {
         "app": "jasperserver",
         "component": "jaspersoft-bi",
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log",
         "environment": "wfprd"
       }
     }    
