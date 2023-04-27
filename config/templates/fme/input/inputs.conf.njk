@@ -1,0 +1,2 @@
+{% import "../../macros/input.njk" as input with context %}
+{{- input.renderMultilineTail('app.' + typeTag + '.generic', logs_path_app, 'multiline-core-app-regex-' + typeTag) }}

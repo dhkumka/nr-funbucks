@@ -1,0 +1,15 @@
+{
+  "measurementType": "historic",
+  "context": {
+    "fme_logs_path": "fme/fmeserver/resources/logs/core/current",
+    "!logs_path_app": "{{ localLogsPathPrefix | default('/sw_ux') }}/{{ fme_logs_path }}/fmeserver.log",
+    "appParserFilterRegex": "(?m)^(?<fme_time>\\w{3}-\\d{2}-\\w{3}-\\d{4}.\\d{2}.\\d{2}.\\d{2}(?:.\\d{3}?).(?:[AP]M?))\\s+(?<level>\\w+)\\s+(?<message_parsed>.*)",
+    "startAppParserRegex": "/^(\\w{3}-\\d{2}-\\w{3}-\\d{4}.\\d{2}.\\d{2}.\\d{2}(?:.\\d{3}?)).*$/",
+    "contAppParserRegex": "/^[ ].*/"
+  },
+  "files": [
+    { "tmpl": "filter/filters.conf.njk", "type": "filter"},
+    { "tmpl": "input/inputs.conf.njk", "type": "input"},
+    { "tmpl": "parser/parsers.conf.njk", "type": "parser"}
+  ]
+}
