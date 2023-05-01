@@ -18,20 +18,15 @@
       "context": {
         "app": "wso2",
         "component": "api-manager",
-        "!logs_path_app": "/sw_ux/wso2/wso2am410/repository/logs/wso2carbon.log",
         "environment": "wftst"
       }
     },
     {
       "id": "wftst-fmeserver",
-      "type": "tomcat",
+      "type": "fme",
       "context": {
         "app": "fmeserver",
         "component": "fmeserver",
-        "!logs_path_app": "/sw_ux/fme/fmeserver/resources/logs/core/current/fmeserver.log",
-        "startAppParserRegex": "/^\\[\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.(?:.\\d{3}?).*$/",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}#;>\\*\\/].*/",
-        "appParserFilterRegex": "(?m)^\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)\\](\\s+)(?<level>\\S+)(\\s+)(?<message_parsed>.*)",
         "environment": "wftst"
       }
     },
@@ -42,9 +37,6 @@
         "app": "jasperserver",
         "component": "jaspersoft-bi",
         "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log",
-        "startAppParserRegex": "/^\\[\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}.(?:.\\d{3}?).*$/",
-        "contAppParserRegex": "/^[ \\t+a-zA-Z{}#;>\\*\\/].*/",
-        "appParserFilterRegex": "(?m)^\\[(?<tomcat_time>\\d{4}-\\d{2}-\\d{2}.\\d{2}:\\d{2}:\\d{2}(.\\d{3})?)\\](\\s+)(?<level>\\S+)(\\s+)(?<message_parsed>.*)",
         "environment": "wftst"
       }
     }
