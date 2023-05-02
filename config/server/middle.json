@@ -22,7 +22,6 @@
        "environment": "wftst"
       }
     },
-
     {
       "id": "dispatch-api-war",
       "type": "tomcat",
