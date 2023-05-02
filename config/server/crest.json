@@ -17,7 +17,7 @@
       "type": "tomcat",
       "context": {
        "app": "activemq",
-       "component": "activemq"
+       "component": "activemq",
        "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log",
        "environment": "wfprd"
       }
