@@ -7,11 +7,11 @@
   "vault_cd_pass_field": "password",
   "vault_cd_path": "groups/appdelivery/jenkins-isss-cdua",
   "apps": [
-    {"id": "cpu", "type": "metric_host_cpu", "context": {"environment": "wftst"}},
-    {"id": "disk", "type": "metric_host_disk", "context": {"environment": "wftst"}},
-    {"id": "disk_named", "type": "metric_host_disk_named", "context": {"environment": "wftst"}},
-    {"id": "memory", "type": "metric_host_memory", "context": {"environment": "wftst"}},
-    {"id": "network", "type": "metric_host_network", "context": {"environment": "wftst"}},
+    {"id": "cpu", "type": "metric_host_cpu", "context": {}},
+    {"id": "disk", "type": "metric_host_disk", "context": {}},
+    {"id": "disk_named", "type": "metric_host_disk_named", "context": {}},
+    {"id": "memory", "type": "metric_host_memory", "context": {}},
+    {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wftst-activemq",
       "type": "tomcat",
