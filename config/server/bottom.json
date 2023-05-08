@@ -13,6 +13,15 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
+      "id": "wfdlv-activemq",
+      "type": "tomcat",
+      "context": {
+       "app": "activemq",
+       "component": "activemq",
+       "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
+      }
+    },
+    {
       "id": "dispatch-api-war",
       "type": "tomcat",
       "context": {

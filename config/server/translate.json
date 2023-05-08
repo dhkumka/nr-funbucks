@@ -17,17 +17,15 @@
       "type": "wso2",
       "context": {
         "app": "wso2",
-        "component": "api-manager",
-        "environment": "wfprd"
+        "component": "api-manager"
       }
     },
     {
       "id": "wfprd-fmeserver",
-      "type": "tomcat",
+      "type": "fme",
       "context": {
         "app": "fmeserver",
-        "component": "fmeserver",
-        "environment": "wfprd"
+        "component": "fmeserver"
       }
     },
     {
@@ -36,9 +34,11 @@
       "context": {
         "app": "jasperserver",
         "component": "jaspersoft-bi",
-        "environment": "wfprd"
+        "!logs_path_app": "/apps_ux/logs/WFONE/wfjcrs-war/jasperserver_WFJCRS.log"
       }
-    }    
+    }
   ],
-  "context": {}
+  "context": {
+    "environment": "wfprd"
+  }
 }
