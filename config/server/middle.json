@@ -13,6 +13,15 @@
     {"id": "memory", "type": "metric_host_memory", "context": {}},
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
+      "id": "wftst-activemq",
+      "type": "tomcat",
+      "context": {
+        "app": "activemq",
+        "component": "activemq",
+        "!logs_path_app": "/sw_ux/activemq/current/data/active
+      }
+    },
+    {
       "id": "dispatch-api-war",
       "type": "tomcat",
       "context": {
@@ -127,6 +136,14 @@
       }
     },
     {
+      "id": "wfhr-earnings-api",
+      "type": "tomcat",
+       "context": {
+         "app": "wfhr",
+          "component": "wfhr-earnings-api"
+      }
+    },
+    {
       "id": "wfhr-earnings-submission-listener-api",
       "type": "tomcat",
       "context": {
@@ -172,6 +189,22 @@
       "context": {
         "app": "wfhr",
         "component": "wfhr-wps-payroll-sync-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2k5-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2k5-stub-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-stub-war"
       }
     },
     {
@@ -388,6 +421,14 @@
       "context": {
         "app": "wfss",
         "component": "wfss-pointid-api"
+      }
+    },
+    {
+      "id": "wfss-pointid-api-rest-endpoints",
+      "type": "tomcat",
+      "context": {
+        "app": "wfss",
+        "component": "wfss-pointid-api-rest-endpoints"
       }
     },
     {
