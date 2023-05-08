@@ -14,12 +14,12 @@
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wfprd-activemq",
-      "type": "tomcat",
-      "context": {
-       "app": "activemq",
-       "component": "activemq",
-       "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
-      }
+       "type": "tomcat",
+       "context": {
+         "app": "activemq",
+         "component": "activemq",
+         "!logs_path_app": "/sw_ux/activemq/current/data/active
+       }
     },
     {
       "id": "dispatch-api-war",
@@ -128,6 +128,38 @@
       }
     },
     {
+      "id": "wfhr-diary-submission-listener-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-diary-submission-listener-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-submission-listener-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-submission-listener-api"
+      }
+    },
+    {
+      "id": "wfhr-earnings-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-earnings-war"
+      }
+    },
+    {
       "id": "wfhr-ediaries-ui-war",
       "type": "tomcat",
       "context": {
@@ -144,6 +176,14 @@
       }
     },
     {
+      "id": "wfhr-psa-chips-data-stub-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfhr",
+        "component": "wfhr-psa-chips-data-stub-api"
+      }
+    },
+    {
       "id": "wfhr-wps-payroll-sync-api",
       "type": "tomcat",
       "context": {
@@ -157,6 +197,14 @@
       "context": {
         "app": "wfim",
         "component": "wfim-dispatch-2k5-api"
+      }
+    },
+    {
+      "id": "wfim-dispatch-2k5-stub-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfim",
+        "component": "wfim-dispatch-2k5-stub-war"
       }
     },
     {
@@ -246,7 +294,7 @@
         "app": "wfnews",
         "component": "wfnews-wfim-incident-sync-api"
       }
-    },
+    },    
     {
       "id": "wfone-quartzdesk-war",
       "type": "tomcat",
@@ -405,6 +453,22 @@
       "context": {
         "app": "wfwx",
         "component": "wfwx-danger-summary-war"
+      }
+    },
+    {
+      "id": "wfwx-data-initialization-api",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-data-initialization-api"
+      }
+    },
+    {
+      "id": "wfwx-datawriter-war",
+      "type": "tomcat",
+      "context": {
+        "app": "wfwx",
+        "component": "wfwx-datawriter-war"
       }
     },
     {
