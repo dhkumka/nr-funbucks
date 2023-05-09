@@ -14,11 +14,11 @@
     {"id": "network", "type": "metric_host_network", "context": {}},
     {
       "id": "wfprd-activemq",
-       "type": "tomcat",
-       "context": {
-         "app": "activemq",
-         "component": "activemq",
-         "!logs_path_app": "/sw_ux/activemq/current/data/active
+      "type": "tomcat",
+      "context": {
+        "app": "activemq",
+        "component": "activemq",
+        "!logs_path_app": "/sw_ux/activemq/current/data/active
        }
     },
     {
