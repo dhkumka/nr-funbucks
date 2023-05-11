@@ -18,7 +18,7 @@
       "context": {
         "app": "activemq",
         "component": "activemq",
-        "!logs_path_app": "/sw_ux/activemq/current/data/active"
+        "!logs_path_app": "/sw_ux/activemq/current/data/activemq.log"
        }
     },
     {
